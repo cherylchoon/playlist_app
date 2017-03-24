@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-md-8">
+    <h3><%= "#{@user.first_name} #{@user.last_name}'s" %> Playlist</h3>
+    <table class="table table-striped sortable">
+      <thead>
+        <th>Artist</th>
+        <th>Title</th>
+        <th>Times Added</th>
+      </thead>
+      <tbody>
+        <% @songs.each do |song| %>
+          <tr>
+            <td><%= song.artist %></td>
+            <td><%= song.title %></td>
+            <td>
+              <%= @timesadded.where("song_id=?", song.id).count %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
